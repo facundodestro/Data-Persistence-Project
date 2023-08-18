@@ -42,6 +42,8 @@ public class MainManager : MonoBehaviour
     {
         if (!m_Started)
         {
+            MenuUIManager.Instance.LoadTextWritten();
+            MenuManager.Instance.highScore = PlayerPrefs.GetInt("MaxScore");
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 m_Started = true;
@@ -72,5 +74,18 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+        if (m_Points > MenuManager.Instance.highScore)
+        {
+            MenuManager.Instance.highScore = m_Points;
+            PlayerPrefs.SetInt("MaxScore", MenuManager.Instance.highScore);
+        }
+        try
+        {
+            MenuUIManager.Instance.SaveTextWritten();
+        }
+        catch (System.NullReferenceException)
+        {
+            Debug.Log("Exception");
+        }
     }
 }
