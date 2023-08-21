@@ -35,6 +35,7 @@ public class MenuManager : MonoBehaviour
     }
     public void SaveTextWritten()
     {
+        Debug.Log("Text Saved!");
         playerTextToSave = text.text;
         SaveData data = new SaveData();
         data.playerTextToSave = playerTextToSave;
@@ -48,6 +49,7 @@ public class MenuManager : MonoBehaviour
 
     public void LoadTextWritten()
     {
+        Debug.Log("Text Loaded!");
         string path = Application.persistentDataPath + "/savefile.json";
 
         if (File.Exists(path))

@@ -79,7 +79,7 @@ public class MainManager : MonoBehaviour
             MenuManager.Instance.highScore = m_Points;
             PlayerPrefs.SetInt("MaxScore", MenuManager.Instance.highScore);
         }
-        try
+        /*try
         {
             MenuUIManager.Instance.SaveTextWritten();
         }
@@ -87,5 +87,6 @@ public class MainManager : MonoBehaviour
         {
             Debug.Log("Exception");
         }
+        */
     }
 }
